@@ -21,7 +21,7 @@ CREATE TABLE Certified (
 );
 
 --Creating Table Aircraft--
-CREATE TABLE Employee (
+CREATE TABLE Aircraft (
   AID INT,
   A_NAME VARCHAR(255),
   CRUSINGRANGE INT
