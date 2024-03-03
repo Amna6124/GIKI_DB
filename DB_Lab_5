@@ -10,14 +10,14 @@ CREATE TABLE Flight (
 --Creating Table Employee--
 CREATE TABLE Employee (
   EID INT,
-  E_NAME VARCHAR(255),
+  ENAME VARCHAR(255),
   SALARY INT
 );
 
 --Creating Table Certified--
 CREATE TABLE Certified (
   EID INT,
-  AID INT(255)
+  AID INT
 );
 
 --Creating Table Aircraft--
@@ -75,22 +75,22 @@ INSERT INTO Employee (EID, ENAME, SALARY)
 VALUES (110, 'Ross', 50000);
 
 --Inserting data into "Certified"--
-INSERT INTO Emp (EID, AID)
+INSERT INTO Certified (EID, AID)
 VALUES (100, 114);
 
-INSERT INTO Emp (EID, AID)
+INSERT INTO Certified (EID, AID)
 VALUES (102, 113);
 
-INSERT INTO Emp (EID, AID)
+INSERT INTO Certified (EID, AID)
 VALUES (105, 112);
 
-INSERT INTO Emp (EID, AID)
+INSERT INTO Certified (EID, AID)
 VALUES (106, 115);
 
-INSERT INTO Emp (EID, AID)
+INSERT INTO Certified (EID, AID)
 VALUES (107, 111);
 
-INSERT INTO Emp (EID, AID)
+INSERT INTO Certified (EID, AID)
 VALUES (109, 112);
 
 --Inserting data into "Aircraft"--
