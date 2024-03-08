@@ -1,3 +1,47 @@
+----------------------- CODE OF LAB # 6 -----------------------
+-- Creating the "book_category" table
+CREATE TABLE book_category (
+    category_id SERIAL PRIMARY KEY,
+    category_name VARCHAR(50) NOT NULL,
+    description TEXT
+);
+
+-- Inserting sample data into the "book_category" table
+INSERT INTO book_category (category_name, description) VALUES
+    ('Fiction', 'Novels, short stories, and fictional works'),
+    ('Non-Fiction', 'Biographies, self-help, and educational books'),
+    ('Mystery', 'Detective stories and crime novels'),
+    ('Science Fiction', 'Speculative fiction with futuristic elements'),
+    ('History', 'Books about historical events and periods'),
+    ('Cooking', 'Cookbooks and culinary literature'),
+    ('Travel', 'Books about travel and exploration'),
+    ('Science', 'Scientific literature and textbooks');
+
+
+-- Creating the "books" table
+CREATE TABLE books (
+    testbook_id SERIAL PRIMARY KEY,
+    book_name VARCHAR(50) NOT NULL,
+    category_id INTEGER REFERENCES book_category(category_id) NOT NULL
+);
+
+-- Inserting sample data into the "books" table
+INSERT INTO books (book_name, category_id) VALUES
+    ('The Great Gatsby', 1),
+    ('Sapiens: A Brief History of Humankind', 2),
+    ('The Da Vinci Code', 3),
+    ('Dune', 4),
+    ('A People''s History of the United States', 5),
+    ('The Joy of Cooking', 6),
+    ('Into the Wild', 7),
+    ('Cosmos', 8),
+    ('To Kill a Mockingbird', 1),
+    ('1984', 4);
+
+
+
+
+----------------------- CODE OF LAB # 5 -----------------------
 --Creating Table Flight--
 CREATE TABLE Flight (
   FLIGHT_NO INT,
