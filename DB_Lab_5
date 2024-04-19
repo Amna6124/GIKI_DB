@@ -1,5 +1,5 @@
 ----------------------- CODE OF LAB # 10 -----------------------
-Required data for it Lab 9 task :
+Required data for Lab 9 task :
 -- Create the employees table
 CREATE TABLE employees (
     employee_id SERIAL PRIMARY KEY,
