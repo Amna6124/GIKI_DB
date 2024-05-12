@@ -1,0 +1,97 @@
+Required data
+
+--creating database
+create database VechilceManagementSystem;
+
+-- Create Vehicles table
+CREATE TABLE Vehicles (
+    vehicle_id SERIAL PRIMARY KEY,
+    brand VARCHAR(100),
+    model VARCHAR(100),
+    year INTEGER,
+    color VARCHAR(50),
+    registration_number VARCHAR(20),
+    status VARCHAR(20)
+);
+
+-- Insert data into Vehicles table
+INSERT INTO Vehicles (brand, model, year, color, registration_number, status)
+VALUES 
+    ('Toyota', 'Corolla', 2023, 'White', 'ABC-123', 'available'),
+    ('Honda', 'Civic', 2022, 'Silver', 'XYZ-456', 'rented'),
+    ('Ford', 'Mustang', 2024, 'Red', 'DEF-789', 'available'),
+    ('Chevrolet', 'Camaro', 2023, 'Black', 'GHI-012', 'available'),
+    ('BMW', 'X5', 2022, 'Blue', 'JKL-345', 'under maintenance');
+
+
+-- Create Customers table
+CREATE TABLE Customers (
+    customer_id SERIAL PRIMARY KEY,
+    name VARCHAR(100),
+    phone_number VARCHAR(20),
+    email VARCHAR(100),
+    address TEXT
+);
+
+-- Insert data into Customers table
+INSERT INTO Customers (name, phone_number, email, address)
+VALUES 
+    ('Alice Johnson', '123-456-7890', 'alice@example.com', '123 Main St, City'),
+    ('Bob Smith', '987-654-3210', 'bob@example.com', '456 Oak St, Town'),
+    ('Charlie Brown', '555-123-4567', 'charlie@example.com', '789 Elm St, Village'),
+    ('Diana Lee', '333-555-7777', 'diana@example.com', '321 Pine St, Town'),
+    ('Emma Davis', '999-888-7777', 'emma@example.com', '654 Cedar St, City');
+
+-- Create Rentals table
+CREATE TABLE Rentals (
+    rental_id SERIAL PRIMARY KEY,
+    customer_id INTEGER REFERENCES Customers(customer_id),
+    vehicle_id INTEGER REFERENCES Vehicles(vehicle_id),
+    start_date DATE,
+    end_date DATE,
+    total_cost NUMERIC(10, 2)
+);
+
+-- Insert data into Rentals table
+INSERT INTO Rentals (customer_id, vehicle_id, start_date, end_date, total_cost)
+VALUES 
+    (1, 2, '2024-05-01', '2024-05-05', 200.00),
+    (2, 1, '2024-05-03', '2024-05-07', 250.00),
+    (3, 4, '2024-05-06', '2024-05-10', 300.00),
+    (4, 3, '2024-05-08', '2024-05-12', 280.00),
+    (5, 1, '2024-05-10', '2024-05-14', 220.00);
+
+-- Create Maintenance table
+CREATE TABLE Maintenance (
+    maintenance_id SERIAL PRIMARY KEY,
+    vehicle_id INTEGER REFERENCES Vehicles(vehicle_id),
+    maintenance_date DATE,
+    description TEXT,
+    cost NUMERIC(10, 2)
+);
+
+-- Insert data into Maintenance table
+INSERT INTO Maintenance (vehicle_id, maintenance_date, description, cost)
+VALUES 
+    (5, '2024-04-30', 'Engine Oil Change', 50.00),
+    (5, '2024-05-09', 'Brake Replacement', 120.00),
+    (4, '2024-05-05', 'Tire Rotation', 80.00),
+    (3, '2024-05-01', 'Body Repainting', 200.00),
+    (2, '2024-05-10', 'Transmission Fluid Flush', 150.00);
+
+-- Create Employees table
+CREATE TABLE Employees (
+    employee_id SERIAL PRIMARY KEY,
+    name VARCHAR(100),
+    position VARCHAR(100),
+    salary NUMERIC(10, 2)
+);
+
+-- Insert data into Employees table
+INSERT INTO Employees (name, position, salary)
+VALUES 
+    ('John Doe', 'Manager', 5000.00),
+    ('Jane Smith', 'Mechanic', 3000.00),
+    ('Mike Johnson', 'Technician', 3500.00),
+    ('Emily Brown', 'Receptionist', 2500.00),
+    ('Alex Lee', 'Cleaner', 2000.00);
